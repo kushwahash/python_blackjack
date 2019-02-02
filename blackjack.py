@@ -25,7 +25,7 @@ class Deck:
         self.deck = []
         for suit in suits:
             for rank in ranks:
-                deck.append(Card(suit,rank))
+                self.deck.append(Card(suit,rank))
     
     def shuffle(self):
         random.shuffle(self.deck)
@@ -33,7 +33,7 @@ class Deck:
 
     def __str__(self):
         str_deck = ''
-        for card in deck:
+        for card in self.deck:
             str_deck += "\n "+print(card)
         
         return str_deck
@@ -101,11 +101,7 @@ def hit_or_stand(deck,hand):
                 break
             elif choice[0].lower() == 's':
                 print("Dealers turn start......")
-                global playing = False
+                playing = False
                 break
             else:
                 print("Not a valid choice, try again")
-
-if __name__ == "__main__":
-    #create 52 cards and add to deck
-    

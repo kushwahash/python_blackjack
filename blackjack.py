@@ -17,12 +17,29 @@ class Card:
         
     
     def __str__(self):
-        return "Suit : {} Rank: {} Value: {}".format(self.suit,self.rank,self.value)
+        return "{} of {}".format(self.rank,self.suit)
+
+class Deck:
+    def __init__(self):
+        self.deck = []
+        for suit in suits:
+            for rank in ranks:
+                deck.append(Card(suit,rank))
+    
+    def shuffle(self):
+        times = random.randrange(20,100)
+        for iterate in range(0,times):
+            index_one = random.randrange(0,51)
+            index_two = random.randrange(0,51)
+            temp = deck[index_one]
+            deck[index_one] = deck[index_two]
+            dec[index_one] = temp
+
+    def __str__(self):
+        for card in deck:
+            print(card)
 
 
 if __name__ == "__main__":
     #create 52 cards and add to deck
-    deck = []
-    for suit in suits:
-        for rank in ranks:
-            deck.append(Card(suit,rank))
+    

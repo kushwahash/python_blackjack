@@ -31,8 +31,14 @@ class Deck:
         
 
     def __str__(self):
+        str_deck = ''
         for card in deck:
-            print(card)
+            str_deck += "\n "+print(card)
+        
+        return str_deck
+    
+    def deal(self):
+        return self.deck.pop()
 
 
 class Hand:
@@ -45,6 +51,17 @@ class Hand:
         self.cards.append(card)
     
     def adjust_for_ace(self):
+        pass
+
+class chips:
+    def __init__(self):
+        self.total = 100
+        self.bet = 0
+    
+    def win_bet(self):
+        pass
+
+    def loos_bet(self):
         pass
 
 if __name__ == "__main__":

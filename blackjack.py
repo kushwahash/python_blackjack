@@ -27,13 +27,8 @@ class Deck:
                 deck.append(Card(suit,rank))
     
     def shuffle(self):
-        times = random.randrange(20,100)
-        for iterate in range(0,times):
-            index_one = random.randrange(0,51)
-            index_two = random.randrange(0,51)
-            temp = deck[index_one]
-            deck[index_one] = deck[index_two]
-            dec[index_one] = temp
+        random.shuffle(self.deck)
+        
 
     def __str__(self):
         for card in deck:

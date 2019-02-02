@@ -70,6 +70,20 @@ class Chips:
     def loos_bet(self):
         self.total -= self.bet
 
+
+def take_bet(chips):
+    while True:
+        try:
+            bet_value = int(input("Please, enter your bet"))
+        except:
+            print("Not a valid entery, provide an integer")
+        else:
+            if bet_value <= chips.bet:
+                break
+            else:
+                print("Your bet cannot exceed your reserve of {}".format(chips.bet))
+    
+
 if __name__ == "__main__":
     #create 52 cards and add to deck
     

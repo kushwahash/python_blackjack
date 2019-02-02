@@ -59,16 +59,16 @@ class Hand:
             self.value -= 10
             self.aces -=1
 
-class chips:
-    def __init__(self):
-        self.total = 100
+class Chips:
+    def __init__(self,total=100):
+        self.total = total
         self.bet = 0
     
     def win_bet(self):
-        pass
+        self.total += self.bet
 
     def loos_bet(self):
-        pass
+        self.total -= self.bet
 
 if __name__ == "__main__":
     #create 52 cards and add to deck

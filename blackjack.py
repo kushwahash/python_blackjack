@@ -14,8 +14,6 @@ class Card:
     def __init__(self,suit,rank):
         self.suit = suit
         self.rank = rank
-        self.value = values[rank]
-        
     
     def __str__(self):
         return "{} of {}".format(self.rank,self.suit)
@@ -51,9 +49,8 @@ class Hand:
     def add_card(self,card):
         self.cards.append(card)
         self.value += values[card.rank]
-        #check for ace
-        if(card.rank == "Ace"):
-            self.aces += 1
+        if card.rank == 'Ace':
+            self.aces += 1  # add to self.aces
     
     def adjust_for_ace(self):
         while self.value > 21 and self.aces:
@@ -75,11 +72,11 @@ class Chips:
 def take_bet(chips):
     while True:
         try:
-            bet_value = int(input("Please, enter your bet"))
+            bet_value = int(input("Please, enter your bet :: "))
         except:
             print("Not a valid entery, provide an integer")
         else:
-            if bet_value <= chips.bet:
+            if bet_value <= chips.total:
                 break
             else:
                 print("Your bet cannot exceed your reserve of {}".format(chips.bet))
@@ -92,7 +89,7 @@ def hit_or_stand(deck,hand):
     global playing  # to control an upcoming while loop
     while True:
         try:
-            choice = input("Do you want to hit(H) or stand(S), enter your choice H or S?")
+            choice = input("Do you want to hit(H) or stand(S), enter your choice H or S ? :: ")
         except:
             print("Not a valid choice, try again")
         else:
@@ -176,6 +173,13 @@ while True:
             else:
                 push(player_hand,dealer_hand)
     
-    print("Player value {}".format(player_hand.value))
-    playing = False
+    print("Player value :: {}".format(player_hand.value))
+    play_again = input("Play again ? Enter Y")
+    if play_again[0].lower() == 'Y':
+        playing = True
+        continue
+    else:
+        print("Thanks for playing.")
+        playing = False
+        break
 
